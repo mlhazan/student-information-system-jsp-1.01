@@ -1,0 +1,2 @@
+
+create table REGISTRATION(STUDENT_ID VARCHAR(9) not null , COURSE_NUMBER varchar(16) not null,SECTION_ID INTEGER NOT NULL);

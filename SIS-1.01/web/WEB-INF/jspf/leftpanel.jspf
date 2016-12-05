@@ -1,0 +1,11 @@
+<%-- 
+    Document   : leftpanel
+    Created on : 3-Apr-2015, 9:06:59 PM
+    
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<div class="leftbanner" align="left"><img alt="" src="resources/image/u.jpg" /> </div>

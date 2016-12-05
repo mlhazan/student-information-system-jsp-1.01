@@ -1,0 +1,17 @@
+<%-- 
+    Document   : header
+    Author     : M.Hasan
+    ID:102551565
+--%>
+<center>
+    
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+        
+        <div class="greyBox">
+
+             <font color="red" size="+2">Access Denied</font>
+
+        </div>
+       
+</center>

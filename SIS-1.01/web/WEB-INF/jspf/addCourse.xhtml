@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>
+        <title>Add Course</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            
+            <p align="center">
+                <h:graphicImage id="logoImage" url="/resources/image/logo.png"/>
+            </p>
+            <p align="center"><b>Add a Course:</b></p>
+            <br/>
+            <table align="center">
+                <tr>
+                    <td>
+                        Course Number:<h:inputText id="courseNo" label="Course Number" size="15"
+                                        value="#{coursesBean.courseNumber}" required="true"
+                                        requiredMessage="Course Number is required.">
+                                  </h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Course Title:<h:inputText id="courseTi" label="Course Title" size="20"
+                                      value="#{coursesBean.title}" required="true"
+                                requiredMessage="Course Title is required.">
+                          </h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Section ID:<h:inputText id="sectionId" label="Section ID" size="10"
+                                    value="#{coursesBean.sectionId}" required="true"
+                                requiredMessage="Section ID is required.">
+                          </h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Term: <h:selectOneMenu id="courseTerm" value="#{coursesBean.term}">
+                              <f:selectItem id="item1" itemLabel="Fall" itemValue="Fall" />
+                              <f:selectItem id="item2" itemLabel="Winter" itemValue="Winter" />
+                              <f:selectItem id="item3" itemLabel="Inter/Summer" itemValue="Inter/Summer" />
+                            </h:selectOneMenu>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Course Credit:<h:inputText id="courseCredit" label="Course Credit" size="10"
+                                           value="#{coursesBean.credit}" required="true"
+                                requiredMessage="Course Credit is required.">
+                                </h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Description: <h:inputTextarea id="courseDescription" value="#{coursesBean.description}"
+                                                 cols="75" rows="5">
+                                </h:inputTextarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Instructor:<h:inputText id="instructorName" label="Instructor" size="20"
+                                        value="#{coursesBean.instructor}">
+                          </h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Building:<h:inputText id="buildingName" label="Building" size="15"
+                                      value="#{coursesBean.building}">
+                          </h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Room Number:<h:inputText id="roomNo" label="Room Number" size="10"
+                                         value="#{coursesBean.room}">
+                          </h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Prerequisites:<h:inputText id="prerequisitesCourses" label="Prerequisites" size="25"
+                                           value="#{coursesBean.prerequisites}">
+                          </h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Lecture Days:<h:inputText id="lectureDays" label="Lecture Days" size="10"
+                                          value="#{coursesBean.days}" required="true"
+                                requiredMessage="Lecture Days are required.">
+                          </h:inputText> Example "MWF" for three days a week.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Start Time:<h:inputText id="startTime" label="Start Time" size="15"
+                                        value="#{coursesBean.startTime}" required="true"
+                                requiredMessage="Start Time is required.">
+                                <f:convertDateTime pattern="HH:mm:ss" type="time" />
+                          </h:inputText> Format "HH:mm:ss"
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        End Time:<h:inputText id="endTime" label="End Time" size="15"
+                                      value="#{coursesBean.endTime}" required="true"
+                                requiredMessage="End Time is required.">
+                            <f:convertDateTime pattern="HH:mm:ss" type="time" />
+                          </h:inputText> Format "HH:mm:ss"
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Exam DateTime:<h:inputText id="examDateTime" label="Exam DateTime" size="25"
+                                           value="#{coursesBean.exam}" required="true"
+                                requiredMessage="Exam DateTime is required.">
+                                <f:convertDateTime pattern="yyyy/MM/dd HH:mm:ss" type="both" />
+                          </h:inputText> Format "yyyy/MM/dd HH:mm:ss"
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:commandButton id="submit" value="Submit"
+                             action="addCourseResponse.xhtml"/>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+    </h:body>
+</html>
+

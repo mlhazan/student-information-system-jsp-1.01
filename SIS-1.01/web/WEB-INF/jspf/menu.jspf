@@ -1,0 +1,24 @@
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<div id="section-navigation">
+    <li> <a href='<%= response.encodeURL("searchCourses.jsp") %>'>Search Course</a></li>
+    <br/>
+    <br/>
+    <li><a href='<%= response.encodeURL("registerDrop.jsp") %>'>Add/Drop Course</a></li>
+    <br/>
+    <br/>
+    <li> <a href='<%= response.encodeURL("account.jsp") %>'>Account</a></li>
+    <br/>
+    <br/>
+    <li><a href='<%= response.encodeURL("personal.jsp") %>'>Personal Info</a></li>
+    <br/>
+    <br/>
+    <li><a href='<%= response.encodeURL("exam.jsp") %>'>Exam Details</a></li>
+    <br/>
+    <br/>
+    <li><a href='<%= response.encodeURL("logout.jsp") %>'>Logout</a></li>
+    <br />
+</div>

@@ -1,0 +1,17 @@
+<%--
+    Document   : footer
+
+    Author     : M.Hasan
+    ID:102551565
+--%>
+
+<center>
+
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+        <div class="footer" align="center">
+        Copyright © Student Info System, 2015
+
+        </div>
+
+</center>

@@ -1,0 +1,15 @@
+<%--
+    Document   : header
+    Author     : M.Hasan
+    ID:102551565
+--%>
+
+<center>
+
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style2.css" rel="stylesheet" type="text/css"/>
+        <div class="header1" align="center"><img src="resources/image/logo.png" alt="uwindsor"/></div>
+
+        <font color="blue" size="+2">Student Information System</font>
+
+</center>

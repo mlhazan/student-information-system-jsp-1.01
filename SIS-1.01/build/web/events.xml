@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<events>
+    <event>
+        <title>Science Conference 2015</title>
+        <sponsor>University of Windsor</sponsor>
+        <place>Erie Hall</place>
+        <date>April 25, 2015</date>
+        <publisher>Uwindsor</publisher>
+        <url>www.uwindsor.ca</url>
+    </event>
+    <event>
+        <title>Musical Events</title>
+        <sponsor>Jazz group</sponsor>
+        <place>Assumption Hall</place>
+        <date>April 29,2015</date>
+        <publisher>School of Drama and Arts</publisher>
+        <url>www.drama.ca</url>
+    </event>
+    <event>
+        <title>Cultural Show</title>
+        <sponsor>International Student Center</sponsor>
+        <place>CAW Center</place>
+        <date>May, 2015</date>
+        <publisher>Social Scence Society</publisher>
+        <url>www.uwindsor.ca/isc</url>
+    </event>
+    <event>
+        <title>Fall Job Fare 2015</title>
+        <sponsor>IBM Computer </sponsor>
+        <place>Erie Hall</place>
+        <date>April 24, 2015</date>
+        <publisher>IBM Computer</publisher>
+        <url>www.ibm.ca</url>
+    </event>
+</events>

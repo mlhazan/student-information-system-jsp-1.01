@@ -1,0 +1,1 @@
+INSERT INTO `mysis`.`COURSES` (`COURSE_NUMBER`, `TITLE`, `SECTION_ID`, `TERM`, `CREDIT`, `DESCRIPTION`, `INSTRUCTOR`, `BUILDING`, `ROOM`, `PREREQUISITES`, `DAYS`, `START_TIME`, `END_TIME`, `EXAM`) VALUES ('03-60-142', 'Programming Concept 2', '01', 'Fall 2017', '3.0', 'C++ Programming', 'Habed', 'MH', '301', 'null', 'TR', '13:00:00', '15:00:00', '2017-12-23 15:00:00');

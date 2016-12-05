@@ -1,0 +1,126 @@
+<%@ page pageEncoding="UTF-8" %>
+
+<%@page import="java.sql.SQLInput"%>
+<%@page import="java.sql.SQLData"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Calendar"%>
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<sql:setDataSource var="DS" driver="org.apache.derby.jdbc.ClientDriver"
+                   password="mysis" user="mysisuser" scope="page" url="jdbc:derby://localhost:1527/mysis"/>
+<%
+//String id = "593261719";
+String id = (String)session.getAttribute("username");
+Date start, start_min30, start_minh;
+DateFormat tf = new SimpleDateFormat("HH:mm:ss");
+start=tf.parse("8:30:00");
+start_min30=tf.parse("8:00:00");
+start_minh=tf.parse("7:30:00");
+Calendar cal1=Calendar.getInstance();
+Calendar cal2=Calendar.getInstance();
+Calendar cal3=Calendar.getInstance();
+cal1.setTime(start_minh);
+cal2.setTime(start_min30);
+cal3.setTime(start);
+Date time1 = cal1.getTime();
+Date time2 = cal2.getTime();
+Date time3 = cal3.getTime();
+String strCheck1 = tf.format(start_minh);
+String strCheck2 = tf.format(start_min30);
+String strCheck3 = tf.format(start);
+%>
+
+<p align="center">
+    <b>Course Schedules</b>
+</p>
+<table border="2" width="100%">
+    <thead>
+        <th id="th"> Time </th>
+        <th id="th"> Monday </th>
+        <th id="th"> Tuesday </th>
+        <th id="th"> Wednesday </th>
+        <th id="th"> Thursday </th>
+        <th id="th"> Friday </th>
+    </thead>
+    <%
+    while (!strCheck3.equals("22:00:00")){
+    %>
+        <tr>
+            <td> <% out.print(strCheck3); %> </td>
+            <td>
+                <sql:query dataSource="${DS}" var="rs">
+                    select distinct TITLE from MYSISUSER.COURSES, MYSISUSER.REGISTRATION, MYSISUSER.STUDENT where COURSES.COURSE_NUMBER = REGISTRATION.COURSE_NUMBER and STUDENT_ID ='<% out.print(id); %>' and (COURSES.START_TIME = ? or COURSES.START_TIME = ? or COURSES.START_TIME = ?) and (COURSES.DAYS='MW' or COURSES.DAYS='M')
+                    <sql:dateParam type="TIME" value="<%=time1%>" />
+                    <sql:dateParam type="TIME" value="<%=time2%>" />
+                    <sql:dateParam type="TIME" value="<%=time3%>" />
+                </sql:query>
+                <c:forEach var="row" items="${rs.rows}">
+                    ${row.TITLE}
+                </c:forEach>
+            </td>
+            <td>
+                <sql:query dataSource="${DS}" var="rs">
+                    select distinct TITLE from MYSISUSER.COURSES, MYSISUSER.REGISTRATION, MYSISUSER.STUDENT where COURSES.COURSE_NUMBER = REGISTRATION.COURSE_NUMBER and STUDENT_ID ='<% out.print(id); %>' and (COURSES.START_TIME = ? or COURSES.START_TIME = ? or COURSES.START_TIME = ?) and (COURSES.DAYS='TR' or COURSES.DAYS='T')
+                    <sql:dateParam type="TIME" value="<%=time1%>" />
+                    <sql:dateParam type="TIME" value="<%=time2%>" />
+                    <sql:dateParam type="TIME" value="<%=time3%>" />
+                </sql:query>
+                <c:forEach var="row" items="${rs.rows}">
+                    ${row.TITLE}
+                </c:forEach>
+            </td>
+            <td>
+                <sql:query dataSource="${DS}" var="rs">
+                    select distinct TITLE from MYSISUSER.COURSES, MYSISUSER.REGISTRATION, MYSISUSER.STUDENT where COURSES.COURSE_NUMBER = REGISTRATION.COURSE_NUMBER and STUDENT_ID ='<% out.print(id); %>' and (COURSES.START_TIME = ? or COURSES.START_TIME = ? or COURSES.START_TIME = ?) and (COURSES.DAYS='MW' or COURSES.DAYS='W')
+                    <sql:dateParam type="TIME" value="<%=time1%>" />
+                    <sql:dateParam type="TIME" value="<%=time2%>" />
+                    <sql:dateParam type="TIME" value="<%=time3%>" />
+                </sql:query>
+                <c:forEach var="row" items="${rs.rows}">
+                    ${row.TITLE}
+                 </c:forEach>
+            </td>
+            <td>
+                <sql:query dataSource="${DS}" var="rs">
+                    select distinct TITLE from MYSISUSER.COURSES, MYSISUSER.REGISTRATION, MYSISUSER.STUDENT where COURSES.COURSE_NUMBER = REGISTRATION.COURSE_NUMBER and STUDENT_ID ='<% out.print(id); %>' and (COURSES.START_TIME = ? or COURSES.START_TIME = ? or COURSES.START_TIME = ?) and (COURSES.DAYS='TR' or COURSES.DAYS='R')
+                    <sql:dateParam type="TIME" value="<%=time1%>" />
+                    <sql:dateParam type="TIME" value="<%=time2%>" />
+                    <sql:dateParam type="TIME" value="<%=time3%>" />
+                </sql:query>
+                <c:forEach var="row" items="${rs.rows}">
+                    ${row.TITLE}
+                </c:forEach>
+            </td>
+            <td>
+                <sql:query dataSource="${DS}" var="rs">
+                    select distinct TITLE from MYSISUSER.COURSES, MYSISUSER.REGISTRATION, MYSISUSER.STUDENT where COURSES.COURSE_NUMBER = REGISTRATION.COURSE_NUMBER and STUDENT_ID ='<% out.print(id); %>' and (COURSES.START_TIME = ? or COURSES.START_TIME = ? or COURSES.START_TIME = ?) and COURSES.DAYS='F'
+                    <sql:dateParam type="TIME" value="<%=time1%>" />
+                    <sql:dateParam type="TIME" value="<%=time2%>" />
+                    <sql:dateParam type="TIME" value="<%=time3%>" />
+                </sql:query>
+                <c:forEach var="row" items="${rs.rows}">
+                    ${row.TITLE}
+                </c:forEach>
+            </td>
+        </tr>
+
+   <%
+        //Adding 30 minutes to each calendar object
+        cal1.add(Calendar.MINUTE,30);
+        cal2.add(Calendar.MINUTE,30);
+        cal3.add(Calendar.MINUTE,30);
+        //Converting each calendar object to Date object for the next db query
+        time1 = cal1.getTime();
+        time2 = cal2.getTime();
+        time3 = cal3.getTime();
+        //Converting the date object to a string to present time in a table
+        strCheck1 = tf.format(cal1.getTime());
+        strCheck2 = tf.format(cal2.getTime());
+        strCheck3 = tf.format(cal3.getTime());
+
+    }
+    %>
+</table>
+
